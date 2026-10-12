@@ -1,0 +1,16 @@
+{
+  "best_cv_model": "soft_voting",
+  "final_model": "logistic_regression_tuned",
+  "calibration": "none",
+  "final_test_metrics": {
+    "roc_auc": 0.852737089565734,
+    "pr_auc": 0.6675356145047251,
+    "brier": 0.13373642715092518,
+    "log_loss": 0.4069310301618578,
+    "ece": 0.03046267459501192,
+    "accuracy": 0.8062455642299503,
+    "precision": 0.654434250764526,
+    "recall": 0.5721925133689839,
+    "f1": 0.6105563480741797
+  }
+}

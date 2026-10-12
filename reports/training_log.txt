@@ -1,0 +1,94 @@
+﻿Cleaned data: (7043, 32), churn rate 0.265
+
+== Base model zoo (5-fold CV on train) ==
+python.exe : Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+At line:1 char:641
++ ... | Out-Null; & .\.venv\Scripts\python.exe -u run_pipeline.py --n-iter  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Invalid -W opti...arn.exceptions':String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+Invalid -W option ignored: invalid module name: 'sklearn.exceptions'
+C:\Churn_DS\.venv\Lib\site-packages\sklearn\metrics\_classification.py:1531: UndefinedMetricWarning: Precision is 
+ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+C:\Churn_DS\.venv\Lib\site-packages\sklearn\metrics\_classification.py:1531: UndefinedMetricWarning: Precision is 
+ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+C:\Churn_DS\.venv\Lib\site-packages\sklearn\metrics\_classification.py:1531: UndefinedMetricWarning: Precision is 
+ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+C:\Churn_DS\.venv\Lib\site-packages\sklearn\metrics\_classification.py:1531: UndefinedMetricWarning: Precision is 
+ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+C:\Churn_DS\.venv\Lib\site-packages\sklearn\metrics\_classification.py:1531: UndefinedMetricWarning: Precision is 
+ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+dummy                AUC 0.5000 ± 0.0000  Brier 0.1949  (2s)
+logistic_regression  AUC 0.8627 ± 0.0137  Brier 0.1283  (1s)
+naive_bayes          AUC 0.8468 ± 0.0126  Brier 0.2209  (1s)
+knn                  AUC 0.8362 ± 0.0137  Brier 0.1407  (2s)
+svm_rbf              AUC 0.8288 ± 0.0194  Brier 0.1368  (9s)
+decision_tree        AUC 0.8449 ± 0.0129  Brier 0.1367  (0s)
+random_forest        AUC 0.8599 ± 0.0115  Brier 0.1301  (9s)
+extra_trees          AUC 0.8595 ± 0.0108  Brier 0.1309  (5s)
+adaboost             AUC 0.8600 ± 0.0127  Brier 0.1690  (4s)
+hist_gb              AUC 0.8612 ± 0.0113  Brier 0.1303  (2s)
+xgboost              AUC 0.8617 ± 0.0103  Brier 0.1297  (2s)
+lightgbm             AUC 0.8591 ± 0.0096  Brier 0.1313  (2s)
+
+== Hyperparameter search ==
+tuned logistic_regression  AUC 0.8628  {'C': np.float64(56.69849511478853)}
+tuned random_forest        AUC 0.8607  {'max_features': 0.3, 'min_samples_leaf': 18, 'n_estimators': 761}
+tuned xgboost              AUC 0.8650  {'colsample_bytree': np.float64(0.6179924598744779), 'learning_rate': np.float64(0.021535381457547638), 'max_depth': 4, 'min_child_weight': 9, 'n_estimators': 306, 'reg_lambda': np.float64(0.9633513440110397), 'subsample': np.float64(0.610167650697638)}
+tuned lightgbm             AUC 0.8626  {'colsample_bytree': np.float64(0.5127095633720475), 'learning_rate': np.float64(0.013815607382950859), 'min_child_samples': 72, 'n_estimators': 340, 'num_leaves': 35, 'reg_lambda': np.float64(1.976603061794114)}
+
+== Tuned models + ensembles ==
+logistic_regression_tuned AUC 0.8628 ± 0.0139  Brier 0.1282  (0s)
+random_forest_tuned  AUC 0.8607 ± 0.0126  Brier 0.1299  (2s)
+xgboost_tuned        AUC 0.8650 ± 0.0119  Brier 0.1282  (0s)
+lightgbm_tuned       AUC 0.8626 ± 0.0115  Brier 0.1293  (3s)
+soft_voting          AUC 0.8652 ± 0.0125  Brier 0.1279  (6s)
+stacking             AUC 0.8641 ± 0.0128  Brier 0.1291  (96s)
+
+Best CV AUC: soft_voting; chosen by 1-SE rule: logistic_regression_tuned; calibration: none
+
+== Held-out test set ==
+                                  roc_auc  pr_auc   brier  log_loss     ece      f1  recall  precision
+model                                                                                                 
+xgboost_tuned                      0.8597  0.6808  0.1309    0.3994  0.0265  0.5991  0.5455     0.6645
+soft_voting                        0.8593  0.6807  0.1309    0.3996  0.0211  0.6083  0.5481     0.6833
+lightgbm_tuned                     0.8586  0.6779  0.1313    0.4014  0.0190  0.6000  0.5374     0.6791
+stacking                           0.8577  0.6766  0.1329    0.4108  0.0339  0.6070  0.5535     0.6721
+hist_gb                            0.8565  0.6728  0.1323    0.4028  0.0221  0.5979  0.5428     0.6656
+random_forest_tuned                0.8563  0.6688  0.1319    0.4033  0.0167  0.5919  0.5294     0.6712
+lightgbm                           0.8559  0.6734  0.1324    0.4041  0.0283  0.5906  0.5401     0.6516
+random_forest                      0.8548  0.6688  0.1322    0.4052  0.0158  0.5877  0.5241     0.6689
+xgboost                            0.8545  0.6744  0.1329    0.4051  0.0320  0.6003  0.5481     0.6634
+logistic_regression                0.8542  0.6718  0.1330    0.4051  0.0248  0.6081  0.5642     0.6594
+logistic_regression_tuned + none   0.8527  0.6675  0.1337    0.4069  0.0305  0.6106  0.5722     0.6544
+logistic_regression_tuned          0.8527  0.6675  0.1337    0.4069  0.0305  0.6106  0.5722     0.6544
+extra_trees                        0.8519  0.6665  0.1340    0.4085  0.0213  0.5991  0.5455     0.6645
+adaboost                           0.8472  0.6551  0.1703    0.5232  0.1658  0.5884  0.5561     0.6246
+decision_tree                      0.8398  0.6147  0.1392    0.4186  0.0270  0.6022  0.5909     0.6139
+naive_bayes                        0.8344  0.6170  0.2350    1.5511  0.2338  0.6117  0.7540     0.5146
+knn                                0.8258  0.6114  0.1448    0.4946  0.0455  0.5887  0.5722     0.6062
+svm_rbf                            0.8222  0.6505  0.1404    0.4418  0.0285  0.5900  0.5214     0.6794
+
+Summary: logistic_regression_tuned with none calibration
+Done in 470s. Artefacts in models/ and reports/metrics/.

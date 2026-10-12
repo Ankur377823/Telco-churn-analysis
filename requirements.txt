@@ -1,0 +1,18 @@
+# Versions pinned to ones that load under Windows Smart App Control on this machine.
+# Newer wheels (pandas 3.x, scikit-learn 1.9, shap >=0.46, pyarrow) were blocked.
+numpy==2.0.2
+pandas==2.2.3
+scipy==1.14.1
+statsmodels==0.14.4
+scikit-learn==1.5.2
+xgboost==3.2.0
+lightgbm==4.7.0
+matplotlib==3.11.2
+seaborn==0.13.2
+openpyxl==3.1.5
+joblib==1.6.0
+ipykernel==7.4.0
+jupyter
+nbformat
+nbconvert==7.17.2
+pytest==8.3.4

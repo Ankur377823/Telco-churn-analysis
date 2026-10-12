@@ -1,0 +1,5 @@
+model,best_cv_auc,best_params
+logistic_regression,0.8627936165373049,{'C': np.float64(56.69849511478853)}
+random_forest,0.8606940243304398,"{'max_features': 0.3, 'min_samples_leaf': 18, 'n_estimators': 761}"
+xgboost,0.8650474608918136,"{'colsample_bytree': np.float64(0.6179924598744779), 'learning_rate': np.float64(0.021535381457547638), 'max_depth': 4, 'min_child_weight': 9, 'n_estimators': 306, 'reg_lambda': np.float64(0.9633513440110397), 'subsample': np.float64(0.610167650697638)}"
+lightgbm,0.8626263167520201,"{'colsample_bytree': np.float64(0.5127095633720475), 'learning_rate': np.float64(0.013815607382950859), 'min_child_samples': 72, 'n_estimators': 340, 'num_leaves': 35, 'reg_lambda': np.float64(1.976603061794114)}"
